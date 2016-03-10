@@ -5,6 +5,8 @@ var readFile = Q.denodeify(require('fs').readFile);
 var resolve = require('path').resolve;
 
 var parserOpts = {
+  mergePattern: /^Merge pull request #(\d+) from (.*)$/,
+  mergeCorrespondence: ['id', 'source'],
   headerPattern: /^(\w*)(?:\((.*)\))?\: (.*)$/,
   headerCorrespondence: [
     'type',
